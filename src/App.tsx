@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Heart, Play, Pause, Volume2, VolumeX, Star, Sparkles, Gift, Music } from "lucide-react";
+import { Heart, Play, Pause, Volume2, VolumeX, Star, Sparkles, Gift } from "lucide-react";
+
+/** Use Vite's base so assets work on GitHub Pages subpaths */
+const BASE = import.meta.env.BASE_URL;
 
 /* -------------------- NEW: Instagram 4:5 Video Section -------------------- */
 function InstaVideoSection() {
@@ -66,10 +69,7 @@ function InstaVideoSection() {
   return (
     <section className="px-4 py-20">
       <div className="mx-auto max-w-4xl">
-        <div className="mb-8 text-center">
-          
-         
-        </div>
+        <div className="mb-8 text-center">{/* optional heading removed per your version */}</div>
 
         <div className="group relative rounded-3xl border border-pink-500/20 bg-black/40 p-6 shadow-2xl backdrop-blur-xl md:p-8 ">
           {/* 4:5 container */}
@@ -80,9 +80,8 @@ function InstaVideoSection() {
               preload="metadata"
               playsInline
               controls={false}
-              // poster="/photos/1.jpg"
             >
-              <source src="/videos/insta1.mp4" type="video/mp4" />
+              <source src={`${BASE}videos/insta1.mp4`} type="video/mp4" />
             </video>
 
             {!playing && !err && (
@@ -104,7 +103,7 @@ function InstaVideoSection() {
               <div className="absolute inset-0 grid place-items-center bg-black/50 text-white">
                 <div className="text-center">
                   <p className="text-lg mb-1">Video not found</p>
-                  <p className="text-sm opacity-75">Place your file at /public/videos/insta1.mp4</p>
+                  <p className="text-sm opacity-75">Place your file at public/videos/insta1.mp4</p>
                 </div>
               </div>
             )}
@@ -316,7 +315,7 @@ function App() {
             <div className="animate-slide-up mb-8 mt-4 text-4xl font-light text-pink-300 md:text-6xl">আমার শখের নারী</div>
 
             <div className={`transform transition-all duration-1000 ${showMessage ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
-              
+              {/* message intentionally empty per your latest code */}
             </div>
 
             <div className="mt-12 flex justify-center space-x-4">
@@ -385,7 +384,7 @@ function App() {
                     controls={false}
                   >
                     {/* Put your file in public/videos/মায়া.mp4 */}
-                    <source src="/videos/মায়া.mp4" type="video/mp4" />
+                    <source src={`${BASE}videos/মায়া.mp4`} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
 
@@ -409,7 +408,7 @@ function App() {
                     <div className="absolute inset-0 flex items-center justify-center bg-black/50">
                       <div className="text-center text-white">
                         <p className="mb-2 text-lg">Video not found</p>
-                        <p className="text-sm opacity-75">Make sure the file exists at /public/videos/মায়া.mp4</p>
+                        <p className="text-sm opacity-75">Make sure the file exists at public/videos/মায়া.mp4</p>
                       </div>
                     </div>
                   )}
@@ -476,7 +475,7 @@ function App() {
                   <div className="transform rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-900/50 to-pink-900/50 p-4 shadow-xl transition-all duration-500 hover:rotate-1 hover:scale-105 hover:shadow-purple-500/30 backdrop-blur-lg">
                     <div className="relative aspect-square overflow-hidden rounded-xl">
                       <img
-                        src={`/photos/${file}`}
+                        src={`${BASE}photos/${file}`}
                         alt={`Memory ${i + 1}`}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy"
