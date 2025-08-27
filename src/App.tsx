@@ -384,7 +384,7 @@ function App() {
                     controls={false}
                   >
                     {/* Put your file in public/videos/মায়া.mp4 */}
-                    <source src={`${BASE}videos/মায়া.mp4`} type="video/mp4" />
+                    <source src={`${BASE}videos/maya.mp4`} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
 
